@@ -25,3 +25,12 @@
 .button-primary-bordered:hover {
     opacity: 0.8;
 }
+.button-secondary-bordered {
+    border: 1px solid #bcbebf;
+    color: #303233;
+    background-color: #FAFAFA;
+}
+
+.button-secondary-bordered:hover {
+    opacity: 0.8;
+}
