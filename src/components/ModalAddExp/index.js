@@ -111,7 +111,7 @@ export default function ModalAddExp({ close, addWorkingHistory }) {
 
                 <div className="modal-actions">
                     <button className="button button-primary-bordered" onClick={close}>Отменить</button>
-                    <button className="button button-primary" onClick={save()}>Сохранить</button>
+                    <button className="button button-primary" onClick={save}>Сохранить</button>
                 </div>
             </div>
         </div>

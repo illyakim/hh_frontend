@@ -8,12 +8,14 @@ import AutoCompleteSelect from '@/components/AutoCompleteSelect'
 import SelectDate from '@/components/SelectDate'
 import WorkingHistory from '@/components/workingHistory'
 import ModalAddExp from '@/components/ModalAddExp'
+import AutoCompleteTags from '@/components/AutoCompleteTags'
 
 export default function CreateResume() {
     const [cities, setCities] = useState([])
     const [countries, setCountries] = useState([])
+    const [skills, setSkills] = useState([])
     const [workingHistories, setWorkingHistories] = useState([])
-    const [modalExpIsOpen, setModalExpIsOpen] = useState(true)
+    const [modalExpIsOpen, setModalExpIsOpen] = useState(false)
     useEffect(() => {
         console.log("didMount")
         axios.get(`${END_POINT}/api/region/cities`).then(res => {
@@ -22,6 +24,9 @@ export default function CreateResume() {
 
         axios.get(`${END_POINT}/api/region/countries`).then(res => {
             setCountries(res.data)
+        })
+        axios.get(`${END_POINT}/api/skills`).then(res => {
+            setSkills(res.data)
         })
     }, [])
 
@@ -100,6 +105,13 @@ export default function CreateResume() {
                         <button className='button button-primary-bordered' onClick={() => setModalExpIsOpen(true)}>Добавить место работы</button>
                     </div>
                 </fieldset>
+
+                <fieldset className={"fieldset fieldset-lg"}>
+                    <label>О себе</label>
+                    <textarea className="textarea" placeholder="Расскажите о себе"></textarea>
+                </fieldset>
+
+                <AutoCompleteTags placeholder="" type="text" label="Ключевые навыки" size="fieldset-md" items={skills} onSelect={onSelect} />
             </div>
         </main >
     )

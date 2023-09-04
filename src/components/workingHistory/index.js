@@ -10,8 +10,7 @@ export default function WorkingHistory({ workingHistory, remove }) {
             <span> {monthsInRussian[startDate.getMonth()]} {startDate.getFullYear()} - {monthsInRussian[endDate.getMonth()]} {endDate.getFullYear()}</span>
             <h4>{workingHistory.company_name}</h4>
             <p>{workingHistory.company_description}</p>
-
-            <span onClick={remove(workingHistory)}>удалить</span>
+            <span onClick={() => remove(workingHistory)}>Удалить</span>
         </div>
     )
 }

@@ -26,7 +26,7 @@ export default function AutoCompleteSelect({ label, placeholder, type, size, ite
     }
 
     return (
-        <div className={"autocomplete" + size} >
+        <div className={"autocomplete " + size} >
             <Input placeholder={placeholder} type={type} onChange={onChange} label={label} size={size} />
             {
                 value.name !== "" && <div className="tag">
